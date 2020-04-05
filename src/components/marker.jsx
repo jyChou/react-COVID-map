@@ -26,7 +26,11 @@ class LocationMarker extends Component {
               lng: this.props.lng,
             }}
           >
-            <div>test</div>
+            <div>
+                <p>test</p>
+                <p>test</p>
+                <butto onClick={this.props.onClick}> Click</butto>
+            </div>
           </InfoWindow>
         )}
       </Marker>

@@ -8,9 +8,7 @@ class App extends Component {
     selectedLat: null,
     selectedLng: null,
     defaultLat: 40.756795,
-    defaultLng: -74.005974,
-    marker_id: null,
-    
+    defaultLng: -74.005974,    
   };
   render() {
     return (

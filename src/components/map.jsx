@@ -9,8 +9,9 @@ const Map = withScriptjs(
     const markers = props.cases.map((c) => (
       <LocationMarker
         key={c.id}
-        lat={c.geomety.coordinates[1]}
-        lng={c.geomety.coordinates[0]}
+        lat={c.lat}
+        lng={c.lng}
+        onClick={()=> props.onClick(c.id)}
       />
     ));
 
