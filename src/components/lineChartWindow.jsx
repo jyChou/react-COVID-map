@@ -7,6 +7,7 @@ class LineChartWindow extends Component {
   render() {
     console.log(this.props.id)
     console.log(this.props.data[0].confirm);
+    const state_name = this.props.data[this.props.id-1].state_name
     const data = {
         labels: this.props.data[this.props.id-1].date,
         datasets: [
@@ -66,11 +67,11 @@ class LineChartWindow extends Component {
           background: "white",
         }}
       >
-        <div className="d-flex flex-column flex-md-row align-items-center bg-white">
-        <div className="col-sm"> {this.props.id}</div>
+        <div className="d-flex flex-row align-items-center bg-white">
+        <div className="col-sm"> {state_name}</div>
         <button
             type="button"
-            className="close"
+            className="close float-right"
             aria-label="Close"
             onClick={this.props.onClick}
           >

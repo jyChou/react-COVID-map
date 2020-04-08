@@ -1,19 +1,24 @@
 import React, { Component } from "react";
 import Map from "./map.jsx";
 import LineChartWindow from "./lineChartWindow";
+import Loading from "./loading";
 
 class MapContainer extends Component {
   state = {
     marker_id: false,
+    loading: true,
   };
   handleOnClick = (id) => {
     this.setState({ marker_id: id });
   };
-
+  componentDidMount = () => {
+      this.setState({ loading: false})
+  }
   render() {
     return (
       <>
         <div style={{ height: "100%", width: "100%", position: "absolute" }}>
+          {this.state.loading ? (<Loading />) : ("")}
           <Map
             googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
             loadingElement={<div style={{ height: "100%" }} />}
@@ -29,8 +34,9 @@ class MapContainer extends Component {
           <LineChartWindow
             data={this.props.cases}
             id={this.state.marker_id}
-
-            onClick={() => {this.handleOnClick(0)}}
+            onClick={() => {
+              this.handleOnClick(0);
+            }}
           />
         ) : (
           ""
