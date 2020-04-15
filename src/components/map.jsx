@@ -13,7 +13,7 @@ const Map = withScriptjs(
         lng={c.lng}
         confirmed={c.confirm}
         death={c.death}
-
+        state_name={c.state_name}
         onClick={()=> props.onClick(c.id)}
       />
     ));

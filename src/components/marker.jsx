@@ -10,9 +10,9 @@ class LocationMarker extends Component {
   };
 
   render() {
-    console.log(this.props.confirmed)
-    const confirmed = this.props.confirmed.reduce((a,b)=>a+b);
-    const death = this.props.death.reduce((a,b)=>a+b);
+    console.log(this.props.confirmed);
+    const confirmed = this.props.confirmed.reduce((a, b) => a + b);
+    const death = this.props.death.reduce((a, b) => a + b);
     return (
       <Marker
         key={this.props.id}
@@ -30,11 +30,15 @@ class LocationMarker extends Component {
             }}
           >
             <div>
-                <p>{`Confirmed:`}</p>
-                <p>{confirmed}</p>
-                <p>{`Death:`}</p>
-                <p>{death}</p>
-                <butto className="btn btn-primary" onClick={this.props.onClick}> Chart</butto>
+              <h6>{this.props.state_name}</h6>
+              <p>{`Confirmed:`}</p>
+              <p>{confirmed}</p>
+              <p>{`Death:`}</p>
+              <p>{death}</p>
+              <butto className="btn btn-primary" onClick={this.props.onClick}>
+                {" "}
+                Chart
+              </butto>
             </div>
           </InfoWindow>
         )}
