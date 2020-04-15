@@ -20,7 +20,7 @@ const Map = withScriptjs(
 
     return (
       <GoogleMap
-        defaultZoom={14}
+        defaultZoom={5}
         center={{ lat: props.defaultLat, lng: props.defaultLng }}
         defaultOptions={{ styles: mapStyle }}
       >

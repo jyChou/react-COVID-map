@@ -68,7 +68,7 @@ class LineChartWindow extends Component {
         }}
       >
         <div className="d-flex flex-row align-items-center bg-white">
-        <div className="col-sm"> {state_name}</div>
+        <div className="col-sm"> <h6>{state_name}</h6></div>
         <button
             type="button"
             className="close float-right"

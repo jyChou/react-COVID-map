@@ -7,8 +7,8 @@ class MapContainer extends Component {
   state = {
     marker_id: false,
     loading: true,
-    defaultLat: 40.756795,
-    defaultLng: -74.005974,
+    defaultLat: 38.68550976,
+    defaultLng: -99.79980469,
   };
   handleOnClick = (id) => {
     const c = this.props.cases.filter((c) => c.id === id);
