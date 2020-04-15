@@ -3,6 +3,7 @@ import { withGoogleMap, GoogleMap } from "react-google-maps";
 import withScriptjs from "react-google-maps/lib/withScriptjs";
 import mapStyle from "../mapStyle.js";
 import LocationMarker from "./marker";
+import { Circle } from "react-google-maps";
 
 const Map = withScriptjs(
   withGoogleMap((props) => {
@@ -14,16 +15,28 @@ const Map = withScriptjs(
         confirmed={c.confirm}
         death={c.death}
         state_name={c.state_name}
-        onClick={()=> props.onClick(c.id)}
+        onClick={() => props.onClick(c.id)}
       />
     ));
-
+    const circles = props.cases.map((c) => (
+      <Circle
+        center={{ lat: c.lat, lng: c.lng }}
+        defaultRadius={Math.sqrt(c.confirm.reduce((a, b) => a + b) * 100000)}
+        visible={true}
+        options={{
+          strokeColor: "rgba(0,0,0,0)",
+          fillColor: "#FF0000",
+          fillOpacity: 0.35,
+        }}
+      />
+    ));
     return (
       <GoogleMap
         defaultZoom={5}
         center={{ lat: props.defaultLat, lng: props.defaultLng }}
         defaultOptions={{ styles: mapStyle }}
       >
+        {circles}
         {markers}
       </GoogleMap>
     );
