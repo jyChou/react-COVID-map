@@ -11,6 +11,9 @@ const Map = withScriptjs(
         key={c.id}
         lat={c.lat}
         lng={c.lng}
+        confirmed={c.confirm}
+        death={c.death}
+
         onClick={()=> props.onClick(c.id)}
       />
     ));
