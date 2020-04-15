@@ -12,7 +12,7 @@ class LineChartWindow extends Component {
         labels: this.props.data[this.props.id-1].date,
         datasets: [
           {
-            label: "確診",
+            label: "comfirmed",
             fill: true,
             lineTension: 0.1,
             backgroundColor: "rgba(0, 0, 0, 0)",
@@ -33,7 +33,7 @@ class LineChartWindow extends Component {
             data: this.props.data[this.props.id-1].confirm,
           },
           {
-            label: "死亡",
+            label: "death",
             fill: true,
             lineTension: 0.1,
             backgroundColor: "rgba(0, 0, 0, 0)",

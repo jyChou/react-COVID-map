@@ -12,6 +12,7 @@ class MapContainer extends Component {
     this.setState({ marker_id: id });
   };
   componentDidMount = () => {
+      console.log("close loading page!")
       this.setState({ loading: false})
   }
   render() {
