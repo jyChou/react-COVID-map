@@ -15,8 +15,8 @@ class MapContainer extends Component {
     const c = this.props.cases.filter((c) => c.id === id);
     this.setState({
       marker_id: c[0].id,
-      defaultLat: c[0].lat,
-      defaultLng: c[0].lng,
+      //defaultLat: c[0].lat,
+      //defaultLng: c[0].lng,
     });
     console.log("marker id:"+this.state.marker_id);
     console.log("id:"+id);
