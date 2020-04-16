@@ -20,8 +20,9 @@ const Map = withScriptjs(
     ));
     const circles = props.cases.map((c) => (
       <Circle
+        key={c.id}
         center={{ lat: c.lat, lng: c.lng }}
-        defaultRadius={Math.sqrt(c.confirm.reduce((a, b) => a + b) * 100000)}
+        defaultRadius={Math.sqrt(c.confirm.reduce((a, b) => a + b) * 150000)}
         visible={true}
         options={{
           strokeColor: "rgba(0,0,0,0)",
@@ -34,7 +35,12 @@ const Map = withScriptjs(
       <GoogleMap
         defaultZoom={5}
         center={{ lat: props.defaultLat, lng: props.defaultLng }}
-        defaultOptions={{ styles: mapStyle }}
+        defaultOptions={{
+          styles: mapStyle,
+          streetViewControl: false,
+          fullscreenControl: false,
+          mapTypeControl: false,
+        }}
       >
         {circles}
         {markers}

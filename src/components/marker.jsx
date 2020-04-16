@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import { Marker, InfoWindow } from "react-google-maps";
 
 class LocationMarker extends Component {
-  state = { isOpen: false };
+  state = {
+    isOpen: false,
+    confirmed: this.props.confirmed.reduce((a, b) => a + b),
+    death: this.props.death.reduce((a, b) => a + b),
+  };
 
   handleOpen = () => {
     const isOpen = !this.state.isOpen;
@@ -10,9 +14,6 @@ class LocationMarker extends Component {
   };
 
   render() {
-    console.log(this.props.confirmed);
-    const confirmed = this.props.confirmed.reduce((a, b) => a + b);
-    const death = this.props.death.reduce((a, b) => a + b);
     return (
       <Marker
         key={this.props.id}
@@ -32,13 +33,13 @@ class LocationMarker extends Component {
             <div>
               <h6>{this.props.state_name}</h6>
               <p>{`Confirmed:`}</p>
-              <p>{confirmed}</p>
+              <p>{this.state.confirmed}</p>
               <p>{`Death:`}</p>
-              <p>{death}</p>
-              <butto className="btn btn-primary" onClick={this.props.onClick}>
+              <p>{this.state.death}</p>
+              <button className="btn btn-primary" onClick={this.props.onClick}>
                 {" "}
                 Chart
-              </butto>
+              </button>
             </div>
           </InfoWindow>
         )}

@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 
 class LineChartWindow extends Component {
-  state = {};
+  state = {id : this.props.id};
   
+  updateID = (id) => {
+    this.setState({id})
+  }
   render() {
-    console.log(this.props.id)
-    console.log(this.props.data[0].confirm);
+    //console.log(this.props.id)
+    //console.log(this.props.data[0].confirm);
     const state_name = this.props.data[this.props.id-1].state_name
     const data = {
         labels: this.props.data[this.props.id-1].date,
@@ -68,7 +71,7 @@ class LineChartWindow extends Component {
         }}
       >
         <div className="d-flex flex-row align-items-center bg-white">
-        <div className="col-sm"> <h6>{state_name}</h6></div>
+        <div className="col-sm"> {state_name}</div>
         <button
             type="button"
             className="close float-right"

@@ -5,18 +5,21 @@ import Loading from "./loading";
 
 class MapContainer extends Component {
   state = {
-    marker_id: false,
+    marker_id: 0,
     loading: true,
     defaultLat: 38.68550976,
     defaultLng: -99.79980469,
   };
   handleOnClick = (id) => {
+    
     const c = this.props.cases.filter((c) => c.id === id);
     this.setState({
       marker_id: c[0].id,
       defaultLat: c[0].lat,
       defaultLng: c[0].lng,
     });
+    console.log("marker id:"+this.state.marker_id);
+    console.log("id:"+id);
   };
 
   handleClose = () => {
@@ -44,6 +47,7 @@ class MapContainer extends Component {
         </div>
         {this.state.marker_id ? (
           <LineChartWindow
+            key={this.state.marker_id}
             data={this.props.cases}
             id={this.state.marker_id}
             onClick={() => {
