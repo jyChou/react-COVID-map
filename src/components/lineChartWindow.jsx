@@ -63,10 +63,10 @@ class LineChartWindow extends Component {
       <div
         style={{
           position: "fixed",
-          bottom: 15,
-          left: 15,
-          width: 600,
-          height: 350,
+          bottom: 25,
+          left: 25,
+          width: "60%",
+          height: "45%",
           background: "white",
         }}
       >
@@ -83,8 +83,8 @@ class LineChartWindow extends Component {
         </div>
         <div
           style={{
-            width: 500,
-            height: 300,
+            width: "90%",
+            height: "90%",
             margin: "0 auto"
           }}
         >
